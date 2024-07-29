@@ -19,18 +19,20 @@ public class Ex02 {
 		stream.forEach(t -> System.out.print(t + " "));
 		System.out.println();
 
-		// 1-2 count: 요소의 길이를 반환하는 연산자
-//		long count = stream.count();
-//		System.out.println(count);
+		// 1-2 count: 요소의 개수 반환하는 연산자
+		Stream<Integer> stream7 = list.stream();
+		System.out.println("stream7: " + stream7);
+		long count = stream7.count();
+		System.out.println("count: " + count);
 
 		// 2. stream 연산은 원본 데이터를 변경하지 않는다.
 		Stream<Integer> stream2 = list.stream();
 
-		// sorted: 요소들을 정렬하는 연산자 (중간연산: 여러번 가능)
-		// collect: steam을 list로 변환하는 연산자 (최종연산: 한번 쓰고 끝)
+		// sorted: 요소들을 정렬하는 중간 연산자 
+		// collect: 스트림을 컬렉션으로 변환하는 최종 연산자 
 		List<Integer> sortList = stream2.sorted().collect(Collectors.toList());
-		System.out.println(list);
-		System.out.println(sortList);
+		System.out.println("list: " + list);
+		System.out.println("sortList: " + sortList);
 
 		// 3. 중간연산은 여러번 할 수 있고, 최종 연산은 마지막에 한번만 할 수 있다.
 		Stream<Integer> stream3 = list.stream();
